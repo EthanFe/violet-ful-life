@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Wrapper from './components/Wrapper';
+
+const style = {
+  width: "100vw",
+  height: "100vh",
+  "backgroundColor": "skyblue"
+}
+
+const messages = [
+  "wasup",
+  "josh",
+  "so i heard you like",
+  "janky css",
+  "animations"
+]
 
 function App() {
+  const [message, setMessage] = useState(0)
+  useEffect(() => {
+    // setTimeout(() => {
+    //   // if (message < messages.length) {
+    //     setMessage(message < messages.length - 1 ? message + 1 : 0)
+    //   // }
+    // }, 1500)
+  }, [ message ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={style}>
+      <Wrapper message={messages[message]} messageKey={message}/>
     </div>
   );
 }
