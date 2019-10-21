@@ -3,7 +3,6 @@ import MessagesWindow from './MessagesWindow';
 
 const containerStyle = {
   width: "500px",
-  // height: "700px",
   border: "2px solid #00000040",
   borderRadius: "5%",
   textAlign: "center",
@@ -14,14 +13,12 @@ const containerStyle = {
 
 const styles = {
   base: {
-    // position: "relative",
     transitionProperty: "transform, opacity, top",
     transitionDuration: "1000ms",
     position: "relative",
     top: "150%",
     transform: `scale(0.7)`,
     opacity: 0,
-    // top: "400px",
   },
   exitAnimation: {
     top: "-50%",
@@ -29,7 +26,6 @@ const styles = {
   entryAnimation: {
     top: "0%",
     opacity: 1,
-    // transform: "translate(0px,-200px)"
   },
 
   flexContainer: {

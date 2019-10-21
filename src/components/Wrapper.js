@@ -3,14 +3,16 @@ import MessageContainer from './MessageContainer';
 
 const styles = {
   wrapper: {
-    // display: "flex",
-    // justifyContent: "center",
-    // alignItems: "center",
     height: "100%",
     width: "100%"
   },
-  innerWrapper: {
-    height: "fit-content"
+  titleBar: {
+    position: "absolute",
+    width: "100%",
+    textAlign: "center",
+    "font-family": "Poppins",
+    fontSize: "34px",
+    marginTop: "30px"
   }
 }
 
@@ -33,6 +35,7 @@ function Wrapper({conversation, conversationKey}) {
 
   return (
     <div style={styles.wrapper}>
+      <div style={styles.titleBar}>violet.ful.life</div>
       {contentChanged ? <MessageContainer key={previousContent.conversationKey} content={previousContent.conversation} exiting={true}/> : null}
       <MessageContainer key={conversationKey} content={conversation} exiting={false}/>
     </div>

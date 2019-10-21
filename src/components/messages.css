@@ -1,4 +1,3 @@
-@use postcss-nested;
 .messages-container {
 	font-family: "Helvetica Neue";
 	font-size: 20px;
