@@ -3,11 +3,12 @@ import MessagesWindow from './MessagesWindow';
 
 const containerStyle = {
   width: "500px",
-  // height: "300px",
-  border: "2px solid black",
+  height: "700px",
+  border: "2px solid #00000040",
   borderRadius: "5%",
   textAlign: "center",
-  padding: "0px 5px"
+  padding: "0px 5px",
+  backgroundColor: "white"
 }
 
 
@@ -18,17 +19,17 @@ const styles = {
     transitionDuration: "1000ms",
     position: "absolute",
     top: "0px",
-    transform: `translateY(140vh)`,
+    transform: `translateY(140vh) scale(0.7)`,
     opacity: 0,
     // top: "400px",
   },
   exitAnimation: {
-    transform: "translateY(-40vh)",
+    transform: "translateY(-40vh) scale(0.7)",
     // top: "000px",
   },
   entryAnimation: {
     // top: "200px",
-    transform: `translateY(40vh)`,
+    transform: `translateY(10vh) scale(0.7)`,
     opacity: 1,
     // transform: "translate(0px,-200px)"
   }
@@ -46,7 +47,7 @@ function MessageContainer({content, exiting}) {
     <div style={animatorStyles}>
       <div style={containerStyle}>
         {/* {content} */}
-        <MessagesWindow/>
+        <MessagesWindow conversation={content}/>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import MessageContainer from './MessageContainer';
 
-
 const styles = {
   wrapper: {
     display: "flex",
@@ -9,33 +8,34 @@ const styles = {
   }
 }
 
-let previousContent = {message: null, messageKey: null}
+let previousContent = {conversation: null, conversationKey: null}
 
-function Wrapper({message, messageKey}) {
+function Wrapper({conversation, conversationKey}) {
 
   // const [existingContent, setContent] = useState(<div>yo gimme some shit to display</div>)
   useEffect(() => {
-    previousContent = {message, messageKey}
-  }, [message, messageKey])
+    previousContent = {conversation, conversationKey}
+  }, [conversation, conversationKey])
 
-  const contentChanged = previousContent.message !== null && previousContent.message !== message // fuck it
+  const contentChanged = previousContent.conversation !== null && previousContent.conversation !== conversation // fuck it
   // console.log(previousContent)
   // console.log("=>")
   // console.log(content)
-  console.log(messageKey)
-  console.log(previousContent.messageKey, messageKey)
+  
+  // console.log(conversationKey)
+  // console.log(previousContent.conversationKey, conversationKey)
 
   if (contentChanged) {
     return (
       <div style={styles.wrapper}>
-          <MessageContainer key={previousContent.messageKey} content={previousContent.message} exiting={true}/>
-          <MessageContainer key={messageKey} content={message} exiting={false}/>
+          <MessageContainer key={previousContent.conversationKey} content={previousContent.conversation} exiting={true}/>
+          <MessageContainer key={conversationKey} content={conversation} exiting={false}/>
       </div>
     );
   } else {
     return (
       <div style={styles.wrapper}>
-          <MessageContainer key={messageKey} content={message} exiting={false}/>
+          <MessageContainer key={conversationKey} content={conversation} exiting={false}/>
       </div>
     )
   }

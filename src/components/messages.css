@@ -12,7 +12,7 @@
 .messages-p {
   max-width: 255px;
   word-wrap: break-word;
-  margin-bottom: 12px;
+  margin-bottom: 0px;
   line-height: 24px;
   position:relative;
 	padding:10px 20px;
@@ -42,7 +42,7 @@
 .from-me:after {
   right:-56px;
   width:26px;
-  background:skyblue;
+  background:white;
   border-bottom-left-radius: 10px;
   transform:translate(-30px, -2px);
 }
@@ -62,7 +62,11 @@
 .from-them:after {
   left:4px;
   width:26px;
-  background:skyblue;
+  background:white;
   border-bottom-right-radius: 10px;
   transform:translate(-30px, -2px);
+}
+
+.faded {
+  opacity: 0.6;
 }

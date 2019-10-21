@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Wrapper from './components/Wrapper';
+import { SENT, RECEIVED } from './MessageAuthorEnum';
 
 const style = {
   width: "100vw",
@@ -7,27 +8,40 @@ const style = {
   "backgroundColor": "skyblue"
 }
 
-const messages = [
-  "wasup",
-  "josh",
-  "so i heard you like",
-  "janky css",
-  "animations"
-]
+
+const conversations = require('./conversations.json');
+console.log(conversations)
+
+// const conversations = [
+//   [
+//     ["wasup", SENT],
+//     ["josh", SENT],
+//     ["so i heard you like", RECEIVED],
+//     ["janky css", RECEIVED],
+//     ["animations", SENT]
+//   ],
+//   [
+//     ["hi", SENT],
+//     ["im another", RECEIVED],
+//     ["conversation", SENT],
+//     ["wooooo", RECEIVED],
+//     ["fun times", SENT]
+//   ],
+// ]
 
 function App() {
-  const [message, setMessage] = useState(0)
+  const [conversationIndex, setConversation] = useState(0)
   useEffect(() => {
-    // setTimeout(() => {
-    //   // if (message < messages.length) {
-    //     setMessage(message < messages.length - 1 ? message + 1 : 0)
-    //   // }
-    // }, 1500)
-  }, [ message ]);
+    setTimeout(() => {
+      // if (message < messages.length) {
+        setConversation(conversationIndex < conversations.length - 1 ? conversationIndex + 1 : 0)
+      // }
+    }, 3000)
+  }, [ conversationIndex ]);
 
   return (
     <div style={style}>
-      <Wrapper message={messages[message]} messageKey={message}/>
+      <Wrapper conversation={conversations[conversationIndex]} conversationKey={conversationIndex}/>
     </div>
   );
 }
