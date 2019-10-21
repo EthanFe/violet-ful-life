@@ -17,7 +17,7 @@ function App() {
       // if (message < messages.length) {
         setConversation(conversationIndex < conversations.length - 1 ? conversationIndex + 1 : 0)
       // }
-    }, 3000)
+    }, 8000)
   }, [ conversationIndex ]);
 
   const cycleMessage = () => {
