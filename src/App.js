@@ -7,28 +7,43 @@ const style = {
   "backgroundColor": "skyblue"
 }
 
+const pickRandom = array => array[Math.floor(Math.random() * array.length)]
+
 const conversations = require('./conversations.json');
+let seenConversations = {}
+const initialConversation = pickRandom(Object.keys(conversations))
+seenConversations[initialConversation] = true
+
 let timeout = null;
 
 function App() {
   const [conversationIndex, setConversation] = useState(0)
   useEffect(() => {
     timeout = setTimeout(() => {
-      // if (message < messages.length) {
-        setConversation(conversationIndex < conversations.length - 1 ? conversationIndex + 1 : 0)
-      // }
+        cycleMessage()
     }, 8000)
   }, [ conversationIndex ]);
-
+  
   const cycleMessage = () => {
+    let unseenConversations = Object.keys(conversations).filter(index => !seenConversations[index])
+    if (unseenConversations.length === 0) {
+      seenConversations = {}
+      unseenConversations = Object.keys(conversations).filter(index => !seenConversations[index]) // this is jank and i choose to not care
+    }
+    const nextConversation = pickRandom(unseenConversations)
+    seenConversations[nextConversation] = true
+    setConversation(nextConversation)
+  }
+
+  const activelyCycleMessage = () => {
     if (timeout) {
       clearTimeout(timeout)
     }
-    setConversation(conversationIndex < conversations.length - 1 ? conversationIndex + 1 : 0)
+    cycleMessage()
   }
 
   return (
-    <div style={style} onClick={cycleMessage}>
+    <div style={style} onClick={activelyCycleMessage}>
       <Wrapper conversation={conversations[conversationIndex]} conversationKey={conversationIndex}/>
     </div>
   );
