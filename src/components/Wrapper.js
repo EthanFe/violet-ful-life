@@ -11,8 +11,8 @@ const styles = {
     width: "100%",
     textAlign: "center",
     "font-family": "Poppins",
-    fontSize: "34px",
-    marginTop: "30px"
+    fontSize: "24px",
+    marginTop: "20px"
   }
 }
 
