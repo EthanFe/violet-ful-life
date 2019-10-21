@@ -15,23 +15,30 @@ const containerStyle = {
 const styles = {
   base: {
     // position: "relative",
-    transitionProperty: "transform, opacity",
+    transitionProperty: "transform, opacity, top",
     transitionDuration: "1000ms",
-    position: "absolute",
-    top: "0px",
-    transform: `translateY(140vh) scale(0.7)`,
+    position: "relative",
+    top: "150%",
+    transform: `scale(0.7)`,
     opacity: 0,
     // top: "400px",
   },
   exitAnimation: {
-    transform: "translateY(-40vh) scale(0.7)",
-    // top: "000px",
+    top: "-50%",
   },
   entryAnimation: {
-    // top: "200px",
-    transform: `translateY(10vh) scale(0.7)`,
+    top: "0%",
     opacity: 1,
     // transform: "translate(0px,-200px)"
+  },
+
+  flexContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    position: "absolute",
+    width: "100%"
   }
 }
 
@@ -44,10 +51,12 @@ function MessageContainer({content, exiting}) {
   }, [ exiting ])
 
   return (
-    <div style={animatorStyles}>
-      <div style={containerStyle}>
-        {/* {content} */}
-        <MessagesWindow conversation={content}/>
+    <div style={styles.flexContainer}>
+      <div style={animatorStyles}>
+        <div style={containerStyle}>
+          {/* {content} */}
+          <MessagesWindow conversation={content}/>
+        </div>
       </div>
     </div>
   );
