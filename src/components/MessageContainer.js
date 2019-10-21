@@ -3,7 +3,7 @@ import MessagesWindow from './MessagesWindow';
 
 const containerStyle = {
   width: "500px",
-  height: "700px",
+  // height: "700px",
   border: "2px solid #00000040",
   borderRadius: "5%",
   textAlign: "center",

@@ -21,24 +21,16 @@ function Wrapper({conversation, conversationKey}) {
   // console.log(previousContent)
   // console.log("=>")
   // console.log(content)
-  
+
   // console.log(conversationKey)
   // console.log(previousContent.conversationKey, conversationKey)
-
-  if (contentChanged) {
-    return (
-      <div style={styles.wrapper}>
-          <MessageContainer key={previousContent.conversationKey} content={previousContent.conversation} exiting={true}/>
-          <MessageContainer key={conversationKey} content={conversation} exiting={false}/>
-      </div>
-    );
-  } else {
-    return (
-      <div style={styles.wrapper}>
-          <MessageContainer key={conversationKey} content={conversation} exiting={false}/>
-      </div>
-    )
-  }
+  
+  return (
+    <div style={styles.wrapper}>
+      {contentChanged ? <MessageContainer key={previousContent.conversationKey} content={previousContent.conversation} exiting={true}/> : null}
+        <MessageContainer key={conversationKey} content={conversation} exiting={false}/>
+    </div>
+  )
 }
 
 export default Wrapper;
