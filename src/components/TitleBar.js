@@ -25,7 +25,7 @@ function TitleBar() {
   return (
     <div style={styles.titleBarContainer}>
       <div style={styles.titleBar}>
-        violet.ful.life
+       violet.life
       </div>
     </div>
   )
